@@ -46,7 +46,7 @@ public class PostController {
 	}
 	
 	@RequestMapping(path="/{id}", method=RequestMethod.DELETE)
-	public void delete(@RequestParam Long id) {
+	public void delete(@PathVariable Long id) {
 		postService.delete(id);
 	}
 }
