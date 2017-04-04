@@ -193,4 +193,44 @@ public class BlogApiApplicationTests {
 		}
 	}
 
+	@Test
+	public void checkUserDelete() {
+		HttpResponse<JsonNode> jsonResponse;
+		
+		ObjectMapper mapper = new ObjectMapper();
+		User user = new User();
+		user.setFirstName("Mahendra");
+		user.setLastName("Dhoni");
+		user.setUsername("msd");
+		
+		try {
+			JsonNode body = new JsonNode(mapper.writeValueAsString(user));
+			jsonResponse = Unirest.post("http://localhost:8080/blog/api/users")
+					  .header("accept", MediaType.APPLICATION_JSON_VALUE)
+					  .header("Content-Type", MediaType.APPLICATION_JSON_VALUE)
+					  .body(body)
+					  .asJson();
+			JSONObject responseBody = jsonResponse.getBody().getObject();
+			user.setId(responseBody.getLong("id"));
+			JsonNode body1 = new JsonNode(mapper.writeValueAsString(user));
+			
+			String link = "http://localhost:8080/blog/api/users/"+user.getId();
+			jsonResponse = Unirest.delete(link)
+					.header("accept", MediaType.APPLICATION_JSON_VALUE)
+					.header("Content-Type", MediaType.APPLICATION_JSON_VALUE)
+					.body(body1)
+					.asJson();
+			JSONObject responseBody2 = jsonResponse.getBody().getObject();
+			//assertNull(jsonResponse.getBody());
+			JSONObject del = new JSONObject("[{}]");
+			assertEquals(jsonResponse.getBody(),del);
+			//assertNotNull(jsonResponse.getBody());
+			//assertEquals(responseBody.getString("firstName"), user.getFirstName());
+			
+		} catch (UnirestException e) {
+			e.printStackTrace();
+		} catch (JsonProcessingException e) {
+			e.printStackTrace();
+		}
+	}
 }
