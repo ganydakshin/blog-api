@@ -13,7 +13,7 @@ public class IdGenerator {
 	Random random;
 
 	@PostConstruct
-	private void init() {
+	public void init() {
 		range = 1234567L;
 		random = new Random();
 	}

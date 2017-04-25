@@ -13,13 +13,13 @@ import com.blog.api.domain.User;
 @Service
 public class UserService {
 	
-	List<User> users;
+	private List<User> users;
 	
 	@Autowired
-	IdGenerator idGenerator;
+	public IdGenerator idGenerator;
 	
 	@PostConstruct
-	private void init() {
+	public void init() {
 		users = new ArrayList<>();
 	}
 	

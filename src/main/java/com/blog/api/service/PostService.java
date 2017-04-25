@@ -16,6 +16,7 @@ public class PostService {
 	List<Post> posts;
 	
 	@Autowired
+	public
 	IdGenerator idGenerator;
 	
 	@PostConstruct
