@@ -1,0 +1,8 @@
+name: BinarySearchSuite
+threadCount: 4
+
+tests:
+  - name: TestCases
+    classes:
+      - com.blog.api.BlogApiApplicationTests
+     

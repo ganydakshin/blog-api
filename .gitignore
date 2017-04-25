@@ -23,14 +23,9 @@ nbdist/
 
 .settings/
 .project
-.classpath
-bin/
-build/
-.DS_Store
 test-output/
 
 # Package Files #
-*.jar
 *.war
 *.ear
 
