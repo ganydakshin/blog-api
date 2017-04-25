@@ -18,20 +18,16 @@ build/
 nbbuild/
 dist/
 nbdist/
-.nb-gradle/
 
 *.class
 
 .settings/
-.gradle/
-gradle/
 .project
 .classpath
 bin/
 build/
 .DS_Store
 test-output/
-!gradle/wrapper/gradle-wrapper.jar
 
 # Package Files #
 *.jar
