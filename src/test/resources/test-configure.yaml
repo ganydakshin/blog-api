@@ -5,4 +5,6 @@ tests:
   - name: TestCases
     classes:
       - com.blog.api.BlogApiApplicationTests
+      - com.blog.api.ServiceTests.ServiceTests
+      - com.blog.api.UserTests.UserTests
      
